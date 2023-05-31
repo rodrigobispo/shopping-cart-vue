@@ -1,6 +1,6 @@
 <template>
   <div>
-    Esta é a página do carrinho.
+    This is the cart page!
   </div>
 </template>
 
