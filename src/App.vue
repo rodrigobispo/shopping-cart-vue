@@ -1,10 +1,10 @@
 <template>
   <nav>
     <router-link :class="{ active: $route.name === 'HomeView' }" :to="{ name: 'HomeView' }">
-      Home
+      Products
     </router-link>
     <router-link :class="{ active: $route.name === 'CartView' }" :to="{ name: 'CartView' }">
-      Cart
+      <CartDisplayMenu />
     </router-link>
   </nav>
   <router-view/>
@@ -13,9 +13,12 @@
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
 import { useStore } from '@/store';
+import CartDisplayMenu from './components/cart/CartDisplayMenu.vue';
 
 export default defineComponent({
-
+  components: {
+    CartDisplayMenu
+  },
   setup() {
     const store = useStore()
 
@@ -48,7 +51,7 @@ body {
 nav {
   padding: 10px;
   width: 100%;
-  height: 30px;
+  height: 40px;
   background-color: white;
   line-height: 30px;
 

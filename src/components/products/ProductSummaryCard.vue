@@ -58,18 +58,6 @@ export default defineComponent({
     cursor: pointer;
   }
 
-  button.pay-view-product-button {
-    padding: 10px;
-    background-color: rgb(250, 239, 142);
-    border: none;
-    color: black;
-    font-weight: bolder;
-    font-size: 1.15rem;
-    border-radius: 5px;
-    opacity: .70;
-    cursor: pointer;
-  }
-
   @media (min-width: 500px) {
     .card {
       width: 350px;

@@ -27,8 +27,9 @@ export const store = createStore<State>({
     },
     cartTotal: state => {
       return state.cart.reduce((total, product) =>
-          total + (product.quantity * product.price), 0);
-    }
+          total + (product.quantity * product.price), 0)
+    },
+    cartTotalQuantityItems: state => state.cart.reduce((total, product) => total + (product.quantity), 0)
   },
   mutations: {
     addToCart(state, product) {
