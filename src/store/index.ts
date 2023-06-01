@@ -1,9 +1,9 @@
-import { IItems } from '@/data/IItems'
+import IProduct from '@/data/IProduct'
 import { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
 
 export interface State {
-  cart: IItems[]
+  cart: IProduct[]
 }
 
 export const key: InjectionKey<Store<State>> = Symbol()
@@ -14,13 +14,20 @@ function updateLocalStorage(cart) {
 
 export const store = createStore<State>({
   state: {
-    cart: []
+    cart: [] as IProduct[]
   },
   getters: {
     productQuantity: state => product => {
       const item = state.cart.find(i => i.id === product.id)
       if (item) return item.quantity
       else return null
+    },
+    cartItems: state => {
+      return state.cart
+    },
+    cartTotal: state => {
+      return state.cart.reduce((total, product) =>
+          total + (product.quantity * product.price), 0);
     }
   },
   mutations: {

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h3>{{ product.title }}</h3>
-    <h5 class="price">Price: ${{ product.price.toFixed(2) }}</h5>
+    <h5 class="price">Price: $ {{ product.price.toFixed(2) }}</h5>
     <p class="description">Description: {{ description }}</p>
     <p class="text-muted">{{ product.category }}</p>
     <button class="view-product-button" @click="$emit('view-product', product)">View Product</button>
@@ -45,17 +45,29 @@ export default defineComponent({
     p.text-muted {
       color: green;
     }
+  }
+  
+  button.view-product-button {
+    padding: 10px;
+    background-color: rgb(79, 158, 180);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.15rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-    button.view-product-button {
-      padding: 10px;
-      background-color: rgb(79, 158, 180);
-      border: none;
-      color: white;
-      font-weight: bold;
-      font-size: 1.15rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  button.pay-view-product-button {
+    padding: 10px;
+    background-color: rgb(250, 239, 142);
+    border: none;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.15rem;
+    border-radius: 5px;
+    opacity: .70;
+    cursor: pointer;
   }
 
   @media (min-width: 500px) {

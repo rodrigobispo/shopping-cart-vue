@@ -1,4 +1,4 @@
-export interface IItems {
+export default interface IProduct {
   id: number,
   title: string,
   description: string,
