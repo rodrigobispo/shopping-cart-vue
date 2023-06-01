@@ -1,10 +1,18 @@
-import { createStore } from 'vuex'
+import { IItems } from '@/data/IItems'
+import { InjectionKey } from 'vue'
+import { createStore, Store, useStore as baseUseStore } from 'vuex'
+
+export interface State {
+  cart: IItems[]
+}
+
+export const key: InjectionKey<Store<State>> = Symbol()
 
 function updateLocalStorage(cart) {
   localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-export default createStore({
+export const store = createStore<State>({
   state: {
     cart: []
   },
@@ -50,3 +58,7 @@ export default createStore({
   modules: {
   }
 })
+
+export function useStore() {
+  return baseUseStore(key);
+}

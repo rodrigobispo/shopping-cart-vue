@@ -27,21 +27,24 @@
   </div>
 </template>
 
-<script>
-export default ({
+<script lang="ts">
+import { store } from '@/store';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'ProductDescriptionDrawer',
   props: ['product', 'active'],
   computed: {
     productTotal() {
-      return this.$store.getters.productQuantity(this.product)
+      return store.getters.productQuantity(this.product)
     }
   },
   methods: {
     addToCart() {
-      this.$store.commit('addToCart', this.product)
+      store.commit('addToCart', this.product)
     },
     removeFromCart() {
-      this.$store.commit('removeFromCart', this.product)
+      store.commit('removeFromCart', this.product)
     }
   }
 })

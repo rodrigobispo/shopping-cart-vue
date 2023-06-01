@@ -10,12 +10,20 @@
   <router-view/>
 </template>
 
-<script>
-export default {
-  mounted() {
-    this.$store.commit('updateCartFromLocalStorage')
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
+import { useStore } from '@/store';
+
+export default defineComponent({
+
+  setup() {
+    const store = useStore()
+
+    onMounted(() => {
+      store.commit('updateCartFromLocalStorage')
+    })
   }
-}
+})
 </script>
 
 <style lang="scss">

@@ -1,6 +1,8 @@
 <template>
   <div>
-    This is the cart page!
+    <h1>Your Cart</h1>
+
+    <CartItemCard/>
   </div>
 </template>
 
