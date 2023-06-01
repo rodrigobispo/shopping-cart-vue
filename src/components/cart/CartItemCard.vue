@@ -36,11 +36,11 @@ export default defineComponent({
 
 <style lang="scss">
 .cart-item-card {
-  width: 70%;
+  width: 90%;
   margin: 5%;
   background-color: white;
   box-shadow: 0 0 5px gray;
-  border-radius: 7px;
+  border-radius: 5px;
   padding: 11px;
   text-align: left;
 
