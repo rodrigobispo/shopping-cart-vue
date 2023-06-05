@@ -1,6 +1,6 @@
 <template>
   <span v-if="displayTotal > 0">
-    Cart ({{ totalQuantity }}{{ item }}) $ {{ displayTotal }}
+    Cart ({{ totalQuantity }}{{ labelItem }}) $ {{ displayTotal }}
   </span>
   <span v-else>
     Cart
@@ -20,8 +20,13 @@ export default defineComponent({
     displayTotal() {
       return store.getters.cartTotal.toFixed(2)
     },
-    item() {
-      return this.totalQuantity > 1 ? ' items' : ' item'
+    labelItem() {
+      if (this.totalQuantity) {
+        if (this.totalQuantity > 1) {
+          return ' items';
+        } 
+      }
+      return ' item';
     }
   }
 })
